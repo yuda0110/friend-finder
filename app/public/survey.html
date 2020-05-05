@@ -10,6 +10,177 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+<div class="container">
+    <h2>
+        <ion-icon name="help-circle-sharp"></ion-icon>
+        Survey Questions
+    </h2>
 
+    <form method="POST" class="survey-form">
+        <h3>About You</h3>
+
+        <div class="form-group">
+            <label for="name-input">Name (Required)</label>
+            <input class="form-control" id="name-input" type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label for="image-input">Link to Photo Image (Required)</label>
+            <input class="form-control" id="image-input" type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label for="q1">Question 1</label>
+            <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+            <select id="q1">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q2">Question 2</label>
+            <p>Generally speaking, you rely more on your experience than your imagination.</p>
+            <select id="q2">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q3">Question 3</label>
+            <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+            <select id="q3">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Question 4</label>
+            <p>You rarely do something just out of sheer curiosity.</p>
+            <select id="q4">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q5">Question 5</label>
+            <p>People can rarely upset you.</p>
+            <select id="q5">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q6">Question 6</label>
+            <p>It is often difficult for you to relate to other people’s feelings.</p>
+            <select id="q6">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q7">Question 7</label>
+            <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+            <select id="q7">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q8">Question 8</label>
+            <p>You rarely get carried away by fantasies and ideas.</p>
+            <select id="q8">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q9">Question 9</label>
+            <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+            <select id="q9">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="q10">Question 10</label>
+            <p>You feel more energetic after spending time with a group of people.</p>
+            <select id="q10">
+                <option value="" hidden>Select an Option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+
+        <button type="submit" id="submit-btn"  class="btn btn-inlineblock btn-blue">
+            <ion-icon name="checkmark-circle"></ion-icon>
+            Submit
+        </button>
+    </form>
+
+    <ul class="links">
+        <li>
+            <ion-icon name="information-circle-sharp"></ion-icon>
+            <a href="#" target="_blank" rel="noopener">
+                API Friends List
+            </a>
+        </li>
+        <li>
+            <ion-icon name="logo-github"></ion-icon>
+            <a href="https://github.com/yuda0110/friend-finder/" target="_blank" rel="noopener">
+                GitHub Repo
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>
