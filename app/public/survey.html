@@ -22,18 +22,18 @@
 
         <div class="form-group">
             <label for="name-input">Name (Required)</label>
-            <input class="form-control" id="name-input" type="text" required>
+            <input id="name-input" type="text" class="form-control" required>
         </div>
 
         <div class="form-group">
             <label for="image-input">Link to Photo Image (Required)</label>
-            <input class="form-control" id="image-input" type="text" required>
+            <input id="image-input" type="text" class="form-control" required>
         </div>
 
         <div class="form-group">
             <label for="q1">Question 1</label>
             <p>Your mind is always buzzing with unexplored ideas and plans.</p>
-            <select id="q1">
+            <select class="chosen-select" id="q1">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -46,7 +46,7 @@
         <div class="form-group">
             <label for="q2">Question 2</label>
             <p>Generally speaking, you rely more on your experience than your imagination.</p>
-            <select id="q2">
+            <select class="chosen-select" id="q2">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -59,7 +59,7 @@
         <div class="form-group">
             <label for="q3">Question 3</label>
             <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
-            <select id="q3">
+            <select class="chosen-select" id="q3">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -72,7 +72,7 @@
         <div class="form-group">
             <label for="q4">Question 4</label>
             <p>You rarely do something just out of sheer curiosity.</p>
-            <select id="q4">
+            <select class="chosen-select" id="q4">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -85,7 +85,7 @@
         <div class="form-group">
             <label for="q5">Question 5</label>
             <p>People can rarely upset you.</p>
-            <select id="q5">
+            <select class="chosen-select" id="q5">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -98,7 +98,7 @@
         <div class="form-group">
             <label for="q6">Question 6</label>
             <p>It is often difficult for you to relate to other people’s feelings.</p>
-            <select id="q6">
+            <select class="chosen-select" id="q6">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -111,7 +111,7 @@
         <div class="form-group">
             <label for="q7">Question 7</label>
             <p>In a discussion, truth should be more important than people’s sensitivities.</p>
-            <select id="q7">
+            <select class="chosen-select" id="q7">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -124,7 +124,7 @@
         <div class="form-group">
             <label for="q8">Question 8</label>
             <p>You rarely get carried away by fantasies and ideas.</p>
-            <select id="q8">
+            <select class="chosen-select" id="q8">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -137,7 +137,7 @@
         <div class="form-group">
             <label for="q9">Question 9</label>
             <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
-            <select id="q9">
+            <select class="chosen-select" id="q9">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -150,7 +150,7 @@
         <div class="form-group">
             <label for="q10">Question 10</label>
             <p>You feel more energetic after spending time with a group of people.</p>
-            <select id="q10">
+            <select class="chosen-select" id="q10">
                 <option value="" hidden>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -186,31 +186,54 @@
 <script>
   $('#submit-btn').on('click', (event) => {
     event.preventDefault();
-    const newFriend = {
-      name: $("#name-input").val().trim(),
-      photo: $("#image-input").val().trim(),
-      scores: [
-        $("#q1").val(),
-        $("#q2").val(),
-        $("#q3").val(),
-        $("#q4").val(),
-        $("#q5").val(),
-        $("#q6").val(),
-        $("#q7").val(),
-        $("#q8").val(),
-        $("#q9").val(),
-        $("#q10").val()
-      ]
-    };
 
-    // console.log(data);
-
-    $.post("/api/friends", newFriend)
-      .then((data) => {
-        console.log(data);
-        alert("Adding your information...");
+    // Form validation
+    const validateForm = () => {
+      let isValid = true;
+      $(".form-control").each(function() {
+        if ($(this).val() === "") {
+          isValid = false;
+        }
       });
+
+      $(".chosen-select").each(function() {
+        if ($(this).val() === "") {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
+
+    if (validateForm()) {
+      const newFriend = {
+        name: $("#name-input").val().trim(),
+        photo: $("#image-input").val().trim(),
+        scores: [
+          $("#q1").val(),
+          $("#q2").val(),
+          $("#q3").val(),
+          $("#q4").val(),
+          $("#q5").val(),
+          $("#q6").val(),
+          $("#q7").val(),
+          $("#q8").val(),
+          $("#q9").val(),
+          $("#q10").val()
+        ]
+      };
+
+      // console.log(data);
+
+      $.post("/api/friends", newFriend)
+        .then((data) => {
+          console.log(data);
+          alert("Adding your information...");
+        });
+    } else {
+      alert("Please fill out all fields before submitting!");
+    }
   });
+
 </script>
 </body>
 </html>
