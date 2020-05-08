@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900|Roboto:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
 <div class="container">
@@ -180,7 +181,36 @@
         </li>
     </ul>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script>
+  $('#submit-btn').on('click', (event) => {
+    event.preventDefault();
+    const newFriend = {
+      name: $("#name-input").val().trim(),
+      photo: $("#image-input").val().trim(),
+      scores: [
+        $("#q1").val(),
+        $("#q2").val(),
+        $("#q3").val(),
+        $("#q4").val(),
+        $("#q5").val(),
+        $("#q6").val(),
+        $("#q7").val(),
+        $("#q8").val(),
+        $("#q9").val(),
+        $("#q10").val()
+      ]
+    };
+
+    // console.log(data);
+
+    $.post("/api/friends", newFriend)
+      .then((data) => {
+        console.log(data);
+        alert("Adding your information...");
+      });
+  });
+</script>
 </body>
 </html>
