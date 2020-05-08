@@ -180,6 +180,10 @@
             </a>
         </li>
     </ul>
+
+    <div id="modal">
+
+    </div>
 </div>
 
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
@@ -228,6 +232,12 @@
         .then((data) => {
           console.log(data);
           alert("Adding your information...");
+
+          const nameEl = $('<p class="modal-name">');
+          nameEl.text(data.name);
+          const imgEl = $('<img class="modal-photo">');
+          imgEl.attr('src', data.photo);
+          $('#modal').append(nameEl, imgEl);
         });
     } else {
       alert("Please fill out all fields before submitting!");
