@@ -10,6 +10,7 @@
     --color-black: #333;
     --color-grey1: #272727;
     --color-grey2: #c1c1c1;
+    --color-grey3: #6a6a6a;
     --color-grey-light: #eee;
     --font-heading: 'Montserrat', sans-serif;
     --font-default: 'Roboto', sans-serif;
@@ -74,11 +75,15 @@ h1 {
 }
 
 h2 {
+    width: 100%;
     padding-bottom: 2rem;
     font-size: 4rem;
     line-height: 1;
     text-transform: capitalize;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h3 {
@@ -132,6 +137,15 @@ a.btn {
 .btn-blue:hover,
 .btn-blue:focus {
     background-color: var(--color-blue-light1);
+}
+
+.btn-grey {
+    background-color: var(--color-black);
+}
+
+.btn-grey:hover,
+.btn-grey:focus {
+    background-color: var(--color-grey3);
 }
 
 .btn ion-icon {
@@ -208,6 +222,53 @@ a.btn {
     background:red;
 }
 
+
+/* ========== MODAL ========== */
+.modal {
+    width: 90%;
+    max-width: 50rem;
+    padding: 3rem;
+    background: var(--color-white);
+    box-shadow: 0 0 3rem rgba(0, 0, 0, .3);
+    position: fixed;
+    top: calc(100vh / 2);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.modal-name {
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+.modal-photo {
+    max-width: 100%;
+}
+
+.close-icon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 200;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.dark-bg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, .4);
+}
 
 @media screen and (min-width: 641px) {
     /* width: 641px to 768px */

@@ -180,10 +180,6 @@
             </a>
         </li>
     </ul>
-
-    <div id="modal">
-
-    </div>
 </div>
 
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
@@ -233,15 +229,28 @@
           console.log(data);
           alert("Adding your information...");
 
+          const modalEl = $('<div id="best-match-modal" class="modal">');
+          const titleEl = $('<h2>');
+          titleEl.text('Best Match');
           const nameEl = $('<p class="modal-name">');
           nameEl.text(data.name);
           const imgEl = $('<img class="modal-photo">');
           imgEl.attr('src', data.photo);
-          $('#modal').append(nameEl, imgEl);
+          const closeBtnEl = $('<button class="btn btn-grey modal-close">');
+          closeBtnEl.text('Close');
+          const closeIconEl = $('<ion-icon name="close-circle" class="close-icon modal-close">');
+          modalEl.append(titleEl, nameEl, imgEl, closeBtnEl, closeIconEl);
+          const darkBgEl = $('<div class="dark-bg modal-close">');
+          $('.container').append(modalEl, darkBgEl);
         });
     } else {
       alert("Please fill out all fields before submitting!");
     }
+  });
+
+  $(document).on('click', '.modal-close', function(){
+    $('#best-match-modal').remove();
+    $('.dark-bg').remove();
   });
 
 </script>
