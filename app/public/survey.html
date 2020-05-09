@@ -226,9 +226,6 @@
 
       $.post("/api/friends", newFriend)
         .then((data) => {
-          console.log(data);
-          alert("Adding your information...");
-
           const modalEl = $('<div id="best-match-modal" class="modal">');
           const titleEl = $('<h2>');
           titleEl.text('Best Match');
