@@ -8,7 +8,7 @@ The app will then display the name and picture of the user with the best overall
 ![Friend Finder](./app/public/assets/images/friend-finder-screenshot.png)
 
 ### Links
-- [Link to the page](https://github.com/yuda0110/friend-finder)
+- [Link to the page](https://yuko-friend-finder.herokuapp.com/)
 - [Link to the code](https://github.com/yuda0110/friend-finder)
 
 
